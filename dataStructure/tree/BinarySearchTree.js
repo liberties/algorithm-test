@@ -60,18 +60,68 @@ class BinarySearchTree {
     }
   }
 
-  traverse() {
-    this._traverse(this.root);
+  // 广搜，层序遍历
+  levelOrder(){
+    let queue = [];
+    queue.push(this.root);
+    while(queue.length !== 0){
+      let node = queue.shift();
+      console.log(node.e);
+      if(node.left){
+        queue.push(node.left);
+      }
+      if(node.right){
+        queue.push(node.right);
+      }
+    }
   }
 
-  _traverse(node) {
+  // 非递归的前序遍历
+  proOrderNR(){
+    let stack = [];
+    stack.push(this.root);
+    while(stack.length !== 0){
+      let node = stack.pop();
+      console.log(node.e);
+      if(node.right){
+        stack.push(node.right);
+      }
+      if(node.left){
+        stack.push(node.left);
+      }
+    }
+  }
+
+  // 前序遍历
+  preOrder(node) {
     if (node === null) {
       return;
     }
 
     console.log(node.e);
-    this._traverse(node.left);
-    this._traverse(node.right);
+    this.preOrder(node.left);
+    this.preOrder(node.right);
+  }
+
+  // 中序遍历
+  inOrder(node) {
+    if (node === null) {
+      return;
+    }
+
+    this.inOrder(node.left);
+    console.log(node.e);
+    this.inOrder(node.right);
+  }
+
+  postOrder(node) {
+    if (node === null) {
+      return;
+    }
+
+    this.postOrder(node.left);
+    this.postOrder(node.right);
+    console.log(node.e);
   }
 
   toString() {
@@ -90,7 +140,7 @@ class BinarySearchTree {
     res += this.generateDepthString(depth) + node.e + "\n";
     res += this.generateBSTString(node.left, depth + 1);
     res += this.generateBSTString(node.right, depth + 1);
-    return res
+    return res;
   }
 
   generateDepthString(depth) {
@@ -107,6 +157,15 @@ let nums = [5, 3, 6, 8, 4, 2];
 for (let num of nums) {
   bst.add(num);
 }
-// bst.traverse();
+bst.levelOrder();
+console.log();
+bst.preOrder(bst.root);
+console.log();
+bst.proOrderNR();
 // bst.toString()
-console.log(bst.toString());
+// console.log(bst.toString());
+console.log();
+bst.inOrder(bst.root);
+console.log();
+
+bst.postOrder(bst.root);
