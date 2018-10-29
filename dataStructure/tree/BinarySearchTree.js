@@ -60,6 +60,44 @@ class BinarySearchTree {
     }
   }
 
+  removeMin(){
+
+  }
+
+  // 搜索树中的最小值
+  minimum(){
+    if(this.size === 0){
+      console.error('bst is empty')
+      return ;
+    }
+    let node = this._minimum(this.root);
+    console.log(node.e);
+  }
+
+  _minimum(node){
+    if(node.left === null){
+      return node;
+    }
+    return this._minimum(node.left);
+  }
+
+  // 搜索树中的最大值
+  maximum(){
+    if(this.size === 0){
+      console.error('bst is empty')
+      return ;
+    }
+    let node = this._maximum(this.root);
+    console.log(node.e);
+  }
+
+  _maximum(node){
+    if(node.right === null){
+      return node;
+    }
+    return this._maximum(node.right);
+  }
+
   // 广搜，层序遍历
   levelOrder(){
     let queue = [];
@@ -157,6 +195,7 @@ let nums = [5, 3, 6, 8, 4, 2];
 for (let num of nums) {
   bst.add(num);
 }
+bst.minimum();
 bst.levelOrder();
 console.log();
 bst.preOrder(bst.root);
