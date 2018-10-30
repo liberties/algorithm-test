@@ -1,3 +1,5 @@
+// 二分搜索树
+
 class Node {
   constructor(e) {
     this.e = e;
@@ -60,10 +62,6 @@ class BinarySearchTree {
     }
   }
 
-  removeMin(){
-
-  }
-
   // 搜索树中的最小值
   minimum(){
     if(this.size === 0){
@@ -74,6 +72,7 @@ class BinarySearchTree {
     console.log(node.e);
   }
 
+  // 搜索树中的最小值，递归算法
   _minimum(node){
     if(node.left === null){
       return node;
@@ -91,6 +90,7 @@ class BinarySearchTree {
     console.log(node.e);
   }
 
+  // 搜索树中的最大值，递归算法
   _maximum(node){
     if(node.right === null){
       return node;
@@ -152,6 +152,7 @@ class BinarySearchTree {
     this.inOrder(node.right);
   }
 
+  // 后序遍历
   postOrder(node) {
     if (node === null) {
       return;
