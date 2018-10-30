@@ -1,3 +1,5 @@
+// 链表
+
 class Node {
   constructor(e, next = null) {
     this.e = e;

@@ -55,6 +55,14 @@ class MyArray {
     return this.data[idx];
   }
 
+  getLast() {
+    return this.get(this.size - 1);
+  }
+
+  getFirst() {
+    return this.get(0);
+  }
+
   // 修改idx索引位置的元素为e, O(1)
   set(idx, e) {
     if (idx < 0 || idx >= this.size) {
@@ -143,24 +151,26 @@ class MyArray {
   }
 }
 
-let arr = new MyArray();
+module.exports = MyArray;
 
-for (let i = 0; i < 10; i++) {
-  arr.addLast(i);
-}
-arr.toString();
+// let arr = new MyArray();
 
-arr.add(1, 100);
-arr.toString();
+// for (let i = 0; i < 10; i++) {
+//   arr.addLast(i);
+// }
+// arr.toString();
 
-arr.addFirst(-1);
-arr.toString();
+// arr.add(1, 100);
+// arr.toString();
 
-arr.remove(2);
-arr.toString();
+// arr.addFirst(-1);
+// arr.toString();
 
-arr.removeElement(4);
-arr.toString();
+// arr.remove(2);
+// arr.toString();
 
-arr.removeFirst();
-arr.toString();
+// arr.removeElement(4);
+// arr.toString();
+
+// arr.removeFirst();
+// arr.toString();
