@@ -1,3 +1,5 @@
+// 队列
+
 var MyArray = require('./MyArray');
 
 class ArrayQueue {
@@ -45,12 +47,14 @@ class ArrayQueue {
   }
 }
 
-let queue = new ArrayQueue();
-for(let i = 0 ; i< 10 ; i++){
-  queue.enqueue(i);
-  queue.toString();
-  if(i % 3 === 2){
-    queue.dequeue();
-    queue.toString();
-  }
-}
+module.exports = ArrayQueue;
+
+// let queue = new ArrayQueue();
+// for(let i = 0 ; i< 10 ; i++){
+//   queue.enqueue(i);
+//   queue.toString();
+//   if(i % 3 === 2){
+//     queue.dequeue();
+//     queue.toString();
+//   }
+// }

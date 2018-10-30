@@ -103,7 +103,7 @@ class MyArray {
     this.size--;
 
     // 缩小空间
-    if (this.size === this.data.length / 4 && this.data.length / 2 !== 0) {
+    if (this.size <= this.data.length / 4 && this.data.length / 2 !== 0) {
       this.resize(this.data.length / 2);
     }
     return val;
@@ -129,6 +129,7 @@ class MyArray {
 
   // 调整数组空间，变大或者缩小，均摊时间复杂度
   resize(newCapacity) {
+    newCapacity = Math.floor(newCapacity);
     let newData = new Array(newCapacity);
     for (let i = 0; i < this.size; i++) {
       newData[i] = this.data[i];
