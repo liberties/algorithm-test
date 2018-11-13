@@ -36,7 +36,7 @@ class BinarySearchTree {
 
     if (e < node.e) {
       node.left = this._add(node.left, e);
-    } else {
+    } else if (e > node.e) {
       node.right = this._add(node.right, e);
     }
     return node;
