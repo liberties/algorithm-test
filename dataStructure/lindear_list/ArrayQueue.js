@@ -43,7 +43,7 @@ class ArrayQueue {
       }
     }
     str += "] front -> tail";
-    console.log(str);
+    return str;
   }
 }
 

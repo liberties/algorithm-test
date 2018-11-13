@@ -77,11 +77,9 @@ class LoopQueue {
       }
     }
     str += "] front -> tail";
-    console.log(str);
+    return str;
   }
 }
-
-const ArrayQueue = require("./ArrayQueue");
 
 function testQueue(q) {
   const startTime = Date.now();
@@ -98,10 +96,17 @@ function testQueue(q) {
   return endTime - startTime;
 }
 
+const ArrayQueue = require("./ArrayQueue");
+const LinkedListQueue = require('./LinkedListQueue');
+
 let loopQueue = new LoopQueue();
 console.log("loopQueue: " + testQueue(loopQueue));
+let linkedListQueue = new LinkedListQueue();
+console.log("linkedListQueue: " + testQueue(linkedListQueue));
 let arrayQueue = new ArrayQueue();
 console.log("arrayQueue: " + testQueue(arrayQueue));
+// 这里的性能差距应该是在于数组队列出队时候的所有队列元素的前移，链表队列和循环队列差不太多，// 这里的性能差距应该是在于出队时候的所有队列元素的前移，其实js的里面对于动态数组的重新赋值，好像还好？起码在链表栈中没看出什么明显的区别
+
 // for (let i = 0; i < 10; i++) {
 //   queue.enqueue(i);
 //   queue.toString();

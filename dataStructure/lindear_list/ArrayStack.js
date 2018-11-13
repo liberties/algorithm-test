@@ -45,14 +45,16 @@ class ArrayStack {
       }
     }
     str += "] bottom -> top";
-    console.log(str);
+    return str;
   }
 }
 
-let stack = new ArrayStack();
-for(let i = 0 ; i < 5 ; i++){
-  stack.push(i);
-  stack.toString();
-}
-stack.pop();
-stack.toString();
+module.exports = ArrayStack;
+
+// let stack = new ArrayStack();
+// for(let i = 0 ; i < 5 ; i++){
+//   stack.push(i);
+//   stack.toString();
+// }
+// stack.pop();
+// stack.toString();
