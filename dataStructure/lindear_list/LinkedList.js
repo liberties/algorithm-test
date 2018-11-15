@@ -68,6 +68,21 @@ class LinkedList {
         return this.remove(this.size - 1);
     }
 
+    removeElement(e){
+        let prev =  this.dummyHead;
+        while(prev && prev.e !== e){
+            prev = prev.next;
+        }
+        let element = undefined
+        if(prev){
+            element = prev.next;
+            prev.next = element.next;
+            element.next = null;
+            this.size--
+        }
+        return element;
+    }
+
     // 获得链表中第idx个位置的元素
     get(idx) {
         if (idx < 0 || idx >= this.size) {

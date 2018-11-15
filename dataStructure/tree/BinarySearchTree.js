@@ -191,21 +191,23 @@ class BinarySearchTree {
   }
 }
 
-let bst = new BinarySearchTree();
-let nums = [5, 3, 6, 8, 4, 2];
-for (let num of nums) {
-  bst.add(num);
-}
-bst.minimum();
-bst.levelOrder();
-console.log();
-bst.preOrder(bst.root);
-console.log();
-bst.proOrderNR();
-// bst.toString()
-// console.log(bst.toString());
-console.log();
-bst.inOrder(bst.root);
-console.log();
+module.exports = BinarySearchTree;
 
-bst.postOrder(bst.root);
+// let bst = new BinarySearchTree();
+// let nums = [5, 3, 6, 8, 4, 2];
+// for (let num of nums) {
+//   bst.add(num);
+// }
+// bst.minimum();
+// bst.levelOrder();
+// console.log();
+// bst.preOrder(bst.root);
+// console.log();
+// bst.proOrderNR();
+// // bst.toString()
+// // console.log(bst.toString());
+// console.log();
+// bst.inOrder(bst.root);
+// console.log();
+
+// bst.postOrder(bst.root);
