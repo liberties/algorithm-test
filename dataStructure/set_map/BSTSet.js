@@ -1,5 +1,5 @@
 
-const BST = require('./BinarySearchTree');
+const BST = require('../tree/BinarySearchTree');
 
 // 基于二分搜索树的集合实现
 class BSTSet{
@@ -28,9 +28,11 @@ class BSTSet{
     }
 }
 
-const bstSet = new BSTSet();
-bstSet.add(1)
-bstSet.add(1)
-bstSet.add(2)
-bstSet.add(3)
-console.log(bstSet.toString());
+module.exports = BSTSet;
+
+// const bstSet = new BSTSet();
+// bstSet.add(1)
+// bstSet.add(1)
+// bstSet.add(2)
+// bstSet.add(3)
+// console.log(bstSet.toString());
