@@ -95,6 +95,7 @@ class BinarySearchTree {
             return right;
         }
         node.left = this._removeMin(node.left);
+        return node;
     }
 
     removeMax() {
@@ -103,14 +104,15 @@ class BinarySearchTree {
         return ret;
     }
 
-    _removeMax() {
+    _removeMax(node) {
         if (node.right === null) {
-            let left = node.left;
+            const left = node.left;
             node.left = null;
             this.size--;
             return left;
         }
-        node.right = this._removeMin(node.right);
+        node.right = this._removeMax(node.right);
+        return node;
     }
 
     // 搜索树中的最大值
@@ -226,11 +228,13 @@ class BinarySearchTree {
 
 module.exports = BinarySearchTree;
 
-// let bst = new BinarySearchTree();
-// let nums = [5, 3, 6, 8, 4, 2];
-// for (let num of nums) {
-//   bst.add(num);
-// }
+let bst = new BinarySearchTree();
+let nums = [5, 3, 6, 8, 4, 2];
+for (let num of nums) {
+  bst.add(num);
+}
+bst.removeMin();
+console.log(bst.toString());
 // bst.minimum();
 // bst.levelOrder();
 // console.log();
