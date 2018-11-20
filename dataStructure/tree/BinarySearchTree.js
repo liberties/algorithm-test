@@ -115,6 +115,43 @@ class BinarySearchTree {
         return node;
     }
 
+    remove(value){
+      this.root = this._remove(this.root, value);
+    }
+
+    _remove(node, e){
+      if(node === null){
+        return null
+      }
+      if(e < node.e){
+        node.left = this._remove(node.left, e);
+        return node;
+      } else if(e > node.e){
+        node.right = this._remove(node.right, e);
+        return node;
+      } else {
+        if(node.left === null){ // 左子树为空
+          let rightNode = node.right;
+          node.right = null;
+          this.size--;
+          return rightNode;
+        }else if(node.right === null){ // 右子树为空
+          let leftNode = node.left;
+          node.left = null;
+          this.size--;
+          return leftNode;
+        }else {
+          let curNode = this._minimum(node);
+          this._removeMin(node);
+          curNode.left = node.left;
+          curNode.right = node.right;
+          node.left = null;
+          node.right = null;
+          return curNode;
+        }
+      }
+    }
+
     // 搜索树中的最大值
     maximum() {
         if (this.size === 0) {
@@ -233,7 +270,7 @@ let nums = [5, 3, 6, 8, 4, 2];
 for (let num of nums) {
   bst.add(num);
 }
-bst.removeMin();
+bst.remove(4);
 console.log(bst.toString());
 // bst.minimum();
 // bst.levelOrder();
