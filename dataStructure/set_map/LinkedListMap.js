@@ -64,7 +64,7 @@ class LinkedListMap {
         }
         if (prev.next !== null) {
             let cur = prev.next;
-            prev.next.next = cur.next;
+            prev.next = cur.next;
             cur.next = null;
             this.size--;
             return cur.value;
@@ -72,3 +72,19 @@ class LinkedListMap {
         return null;
     }
 }
+
+module.exports = LinkedListMap;
+
+let bstMap = new LinkedListMap();
+
+bstMap.add(1,2);
+// console.log(bstMap.getSize());
+bstMap.add(2,3);
+// console.log(bstMap.getSize());
+console.log(bstMap.get(1));
+console.log(bstMap.get(2));
+
+// bstMap.remove(1);
+bstMap.remove(2);
+console.log(bstMap.getSize());
+console.log(bstMap.get(1));
