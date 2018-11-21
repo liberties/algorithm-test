@@ -1,4 +1,5 @@
-// 队列
+// 数组队列
+// 队列先进先出
 
 var MyArray = require('./MyArray');
 

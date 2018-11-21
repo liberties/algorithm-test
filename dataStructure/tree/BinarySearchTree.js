@@ -1,4 +1,4 @@
-// 二分搜索树
+// 二分搜索树,中间节点的值永远大于左子树的所有节点的值，永远小于右子树的所有节点的值
 
 class Node {
     constructor(e) {
@@ -129,18 +129,20 @@ class BinarySearchTree {
       } else if(e > node.e){
         node.right = this._remove(node.right, e);
         return node;
-      } else {
-        if(node.left === null){ // 左子树为空
+      } else { // 如果找到了
+        if(node.left === null){ // 左子树为空，右子树直接提上来覆盖当前父节点
           let rightNode = node.right;
           node.right = null;
           this.size--;
           return rightNode;
-        }else if(node.right === null){ // 右子树为空
+        }else if(node.right === null){ // 右子树为空，左子树直接提上来覆盖当前父节点
           let leftNode = node.left;
           node.left = null;
           this.size--;
           return leftNode;
         }else {
+          // 如果两侧都有元素
+          // 将被删除节点的右子树的最小值提取出来，覆盖当前父节点。（左子树的最大值也是同理）
           let curNode = this._minimum(node);
           this._removeMin(node);
           curNode.left = node.left;

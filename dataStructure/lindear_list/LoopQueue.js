@@ -1,4 +1,4 @@
-// 循环队列
+// 循环队列，出队O(1)
 
 class LoopQueue {
   constructor(capacity = 10) {

@@ -1,5 +1,5 @@
 
-// 链表栈
+// 链表栈，不受固定的存储空间限制
 
 const LinkedList = require("./LinkedList");
 const ArrayStack = require('./ArrayStack');

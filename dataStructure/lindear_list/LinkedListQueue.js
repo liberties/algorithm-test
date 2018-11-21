@@ -1,5 +1,7 @@
 const Node = require("./LinkedListNode");
 
+// 链表队列，不受固定的存储空间限制，出队为O(1)
+
 class LinkedListQueue {
     constructor() {
         this.head = null;

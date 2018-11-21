@@ -1,4 +1,4 @@
-// 链表
+// 单链表
 
 const Node = require("./LinkedListNode");
 

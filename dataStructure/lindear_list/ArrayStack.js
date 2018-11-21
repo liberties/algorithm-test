@@ -1,4 +1,5 @@
-// 栈
+// 数组栈
+// 先进后出
 
 const MyArray = require("./MyArray");
 
