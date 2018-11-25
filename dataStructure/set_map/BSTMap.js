@@ -40,11 +40,26 @@ class BSTMap {
         if (key > node.key) {
             node.right = this._add(node.right, key, value);
         } else if (key < node.key) {
-            node.left = this._add(node.left, key, right);
+            node.left = this._add(node.left, key, value);
         } else {
             node.value = value;
         }
         return node;
+    }
+
+    keySet(){
+        let nodes = [this.root], keyArray = [];
+        for(let i = 0 ; i < nodes.length ; i++){
+            const node = nodes[i];
+            keyArray.push(node.key);
+            if(node.left){
+                nodes.push(node.left)
+            }
+            if(node.right){
+                nodes.push(node.right)
+            }
+        }
+        return keyArray;
     }
 
     getNode(node, key) {
@@ -70,7 +85,7 @@ class BSTMap {
     }
 
     set(key, value) {
-        let node = this.get(key);
+        let node = this.getNode(this.root, key);
         if (node !== null) {
             node.value = value;
         }
@@ -144,15 +159,15 @@ class BSTMap {
 
 module.exports = BSTMap
 
-let bstMap = new BSTMap();
+// let bstMap = new BSTMap();
 
-bstMap.add(1,2);
-console.log(bstMap.getSize());
-bstMap.add(2,3);
-console.log(bstMap.getSize());
-console.log(bstMap.get(1));
-console.log(bstMap.get(2));
+// bstMap.add(1,2);
+// console.log(bstMap.getSize());
+// bstMap.add(2,3);
+// console.log(bstMap.getSize());
+// console.log(bstMap.get(1));
+// console.log(bstMap.get(2));
 
-bstMap.remove(1);
-console.log(bstMap.getSize());
-console.log(bstMap.get(1));
+// bstMap.remove(1);
+// console.log(bstMap.getSize());
+// console.log(bstMap.get(1));

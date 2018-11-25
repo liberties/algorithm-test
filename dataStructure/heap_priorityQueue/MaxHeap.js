@@ -18,7 +18,7 @@ class MaxHeap {
         }
     }
 
-    size() {
+    getSize() {
         return this.data.getSize();
     }
 
@@ -58,7 +58,7 @@ class MaxHeap {
             const parentIdx = this.parent(idx);
             const parentValue = this.data.get(parentIdx);
             const childValue = this.data.get(idx);
-            if (parentValue > childValue) {
+            if (this.compare(parentValue, childValue) > 0) {
                 break;
             }
             this.data.swap(parentIdx, idx);
@@ -95,13 +95,13 @@ class MaxHeap {
                 const rightIdx = this.rightChild(idx);
                 if (
                     rightIdx < this.data.getSize() &&
-                    this.data.get(rightIdx) > childMaxValue
+                    this.compare(this.data.get(rightIdx), childMaxValue) > 0
                 ) {
                     childMaxIdx = rightIdx;
                     childMaxValue = this.data.get(rightIdx);
                 }
                 const value = this.data.get(idx);
-                if (value < childMaxValue) {
+                if (this.compare(childMaxValue, value) > 0) {
                     this.data.swap(childMaxIdx, idx);
                     idx = childMaxIdx;
                 } else {
@@ -126,6 +126,22 @@ class MaxHeap {
         const last = this.parent(this.data.getSize() - 1);
         for (let i = last; i >= 0; i--) {
             this.siftDown(i);
+        }
+    }
+
+    // 比较方法
+    compare(a1, a2) {
+        // 普通类型的比较，一般是数字
+        if (typeof a1 !== "object" && typeof a2 !== "object") {
+            if (a1 > a2) {
+                return 1;
+            } else if (a2 > a1) {
+                return -1;
+            } else {
+                return 0;
+            }
+        } else {
+            return a1.compareTo(a2);
         }
     }
 }
@@ -175,15 +191,16 @@ const getRandomInt = (function() {
 
 // let heap = new MaxHeap();
 let testData = [];
-const n = 100000;
+const n = 10000;
 for (let i = 0; i < n; i++) {
     const randomNum = getRandomInt(n, 0);
     testData.push(randomNum);
 }
-// let heap = new MaxHeap(testData);
-testHeap(testData, false);
-testHeap(testData, true);
 
+// testHeap(testData, false);
+// testHeap(testData, true);
+
+// let heap = new MaxHeap(testData);
 // let arr = [];
 // for (let i = 0; i < n; i++) {
 //     arr[i] = heap.extractMax();
