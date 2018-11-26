@@ -1,6 +1,8 @@
 const BSTMap = require("../set_map/BSTMap");
 const PriorityQueue = require("./PriorityQueue");
 
+
+// 可以把compare做一个专门的比较器，从外面传入，这样优先队列就可以根据这个比较器来确定优先级，比如一个字符串你不希望根据字典序比较，而是希望根据字符串长度比较
 class Freq {
     constructor(e, freq) {
         this.e = e; // 值

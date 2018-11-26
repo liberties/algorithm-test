@@ -1,6 +1,7 @@
-const MyArray = require("../lindear_list/MyArray");
+const MyArray = require("../linear_list/MyArray");
 
 /**
+ * 最大堆，层序的排放一个个元素到堆中，父亲元素永远比孩子元素大
  * 用数组描述最大堆
  * parent(i) = (i - 1)/2
  * left child (i) = 2 * i + 1

@@ -1,5 +1,5 @@
 
-const LinkedList = require('../lindear_list/LinkedList');
+const LinkedList = require('../linear_list/LinkedList');
 
 // 基于链表的集合实现
 class LinkedListSet{
