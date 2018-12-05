@@ -27,9 +27,8 @@ class SparseGraph{
             throw new Error('vertex is illegal')
         }
 
-        this.g[v].push(w);;
         if(v !== w && !this.directed){
-            this.g[w][v] = true;
+            this.g[v].push(w);
         }
         this.m++;
     }
